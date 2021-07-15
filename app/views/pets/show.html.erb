@@ -7,7 +7,7 @@
 
 <p>
   <strong>Race:</strong>
-  <%= @pet.race %>
+  <%= @pet.breed %>
 </p>
 
 <p>
@@ -15,8 +15,31 @@
   <%= @pet.birthdate %>
 </p>
 
+<h2>Pet History</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Heigth</th>
+      <th>Description</th>
+     
+    </tr>
+  </thead>
 
-<table>
+  <tbody>
+    <% @pet.pet_histories.each do |pet_history| %>
+      <tr>
+        <td><%= pet_history.weight %></td>
+        <td><%= pet_history.heigth %></td>
+        <td><%= pet_history.description %></td>
+      
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Stats</h2>
+<table  class="table table-bordered">
   <thead>
     <tr>
       <th>Peso promedio</th>
@@ -26,12 +49,13 @@
     </tr>
   </thead>
 
+  
   <tbody>
     <tr>
-      <td><%= @pet.avg_weight %></td>
-      <td><%= @pet.avg_height %></td>
-      <td><%= @pet.max_weight %></td>
-      <td><%= @pet.max_height%></td>
+      <td><%= @pet.avgWeight %></td>
+      <td><%= @pet.avgHeight %></td>
+      <td><%= @pet.maxWeight %></td>
+      <td><%= @pet.maxHeight%></td>
     </tr>
   </tbody>
 </table>
